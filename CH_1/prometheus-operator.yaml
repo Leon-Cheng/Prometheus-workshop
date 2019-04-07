@@ -2,6 +2,22 @@
 grafana:
   service:
     type: LoadBalancer
+
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubelet:
+  serviceMonitor:
+    https: true
+
+coreDns:
+  service:
+    selector:
+      k8s-app: kube-dns
+
 prometheus:
   service:
     type: LoadBalancer
